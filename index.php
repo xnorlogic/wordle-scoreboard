@@ -20,8 +20,16 @@
    echo "<body>";
    echo "<hr>";
 
-   /*Generate scoreboard*/
-   ShowScoreBoard($initial_wordle_number, $path, $data_base_name, $twitter_ids_file);
+   echo "<form method='post'> <input type='submit' value='Submit'/>".
+   "<label for='some_wordle_number'> First Wordle Number of the Challenge: </label>".
+   "<input type='text' name='some_wordle_number' value='275'> </form>";
+
+   if(array_key_exists('some_wordle_number', $_POST))
+   {
+      $initial_wordle_number = (int)$_POST['some_wordle_number'];
+      echo "<p>Wordle Score Challenge start point <b>{$initial_wordle_number}</b> !</p>";
+      ShowScoreBoard($initial_wordle_number, $path, $data_base_name, $twitter_ids_file);
+   }
 
    echo "<hr>";
    echo "<br>";

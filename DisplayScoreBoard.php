@@ -21,7 +21,7 @@
      while(!feof($myfile))
      {
         $ThisUserName = trim(fgets($myfile),"\n");
-	$data_base_query = "SELECT username, wordlenumber, wordlescore FROM wordle_scores WHERE username == '".$ThisUserName.
+	     $data_base_query = "SELECT username, wordlenumber, wordlescore FROM wordle_scores WHERE username == '".$ThisUserName.
                            "' AND wordlenumber >=".$StartingWordleNumber." AND wordlenumber < ".$StartingWordleNumber." + 7 ORDER BY wordlenumber ASC;";
         $data = $db->query($data_base_query);
         /*Fetch the next 7 rows in the data*/
@@ -40,7 +40,7 @@
            {
                $ScoresArray[$data_loop] = 7;
            }
-	   $ThisWordleNumber = $ThisWordleNumber + 1;
+	        $ThisWordleNumber = $ThisWordleNumber + 1;
         }
         $TotalScore = array_sum($ScoresArray);
         if($ThisUserName != "")
